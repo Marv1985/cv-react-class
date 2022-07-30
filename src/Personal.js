@@ -9,11 +9,13 @@ class Personal extends Component {
     const { tasks } = this.props;
 
     return (
-      <ul>
-        {tasks.map((task) => {
-          return <li key={task.id}>{task.text}</li>;
+      <div>
+        {tasks.map((task, index) => {
+          if(tasks.length -1 === index){
+          return <p key={task.id}>{task.text}</p>;
+          }
         })}
-      </ul>
+      </div>
     )
   }
 }

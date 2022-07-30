@@ -11,7 +11,8 @@ class Edit extends Component {
   
       return (
         <div>
-          {tasks.map((task) => {
+          {tasks.map((task, index) => {
+            if(tasks.length -1 === index){
             return <div key={task.id}>
           <label htmlFor="taskInput">Enter task</label>
           <input
@@ -21,6 +22,7 @@ class Edit extends Component {
             id="taskInput"
           ></input>
             </div>
+            }
           })}
     </div>
       )
