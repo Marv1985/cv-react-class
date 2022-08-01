@@ -12,7 +12,7 @@ class Personal extends Component {
       <div>
         {tasks.map((task, index) => {
           if(tasks.length -1 === index){
-          return <p key={task.id}>{task.text}</p>;
+          return <p key={task.id}>{task.text} {'  '} {task.number}</p>;
           }
         })}
       </div>

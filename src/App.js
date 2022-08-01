@@ -1,6 +1,5 @@
 import React, {Component} from "react";
 import Personal from "./Personal";
-import uniqid from "uniqid";
 import Edit from "./Edit";
 
 class App extends Component {
@@ -8,13 +7,12 @@ class App extends Component {
     super();
 
     this.state = {
-      task: {
-        text: '', 
-        id: uniqid()
-      },
+      text: '', 
+      number: '',
+      id: '',
       tasks: [],
       edit: false,
-      name: true
+      name: true,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -24,54 +22,70 @@ class App extends Component {
     e.preventDefault();
     this.setState({
       edit: true,
-      name: false
+      name: false,
     })
   }
 
   handleChange = (e) => {
     this.setState({
-      task: {
-        text: e.target.value,
-        id: this.state.task.id,
-      },
+      ...this.state,
+        [e.target.id]: e.target.value,
+
     });
   };
 
   onSubmitTask = (e) => {
     e.preventDefault();
     this.setState({
-      tasks: this.state.tasks.concat(this.state.task),
-      task: {
-        text: '', 
-        id: uniqid()
-      },
+      tasks: this.state.tasks.concat(this.state),
+      text: '', 
+      number: '',
+      id: '',
       edit: false,
-      name: true
+      name: true,
     });
   };
 
   render() {
-    const { task, tasks } = this.state;
+    const { tasks } = this.state;
 
     return (
       <div>
         <form onSubmit={this.onSubmitTask}>
 
+{/* edit change */}
         {this.state.edit ? 
-        <Edit tasks={tasks} handleChange={this.handleChange}/>: null}
+        <Edit tasks={tasks} handleChange={this.handleChange} num='Number' title='Name'/>: null}
 
+{/* default view change */}
          {this.state.name ?  
          <div>
-         <label htmlFor="taskInput">Enter task</label>
+         <div>
+         <label>Name</label>
           <input
+            name='text'
             onChange={this.handleChange}
-            value={task.text}
+            value={this.state.text}
             type="text"
-            id="taskInput"
+            id='text'
           />
-          </div>: null}
+          </div>
+          <div>
+          <label>Number</label>
+           <input
+             name='number'
+             onChange={this.handleChange}
+             value={this.state.number}
+             type="text"
+             id='number'
+           />
+           </div>
+           </div>
+          : null}
 
-          <button type="submit">Add Task</button>
+          
+
+          <button type="submit">Add</button>
           <button onClick={this.handleEdit}>Edit</button>
         </form>
         <Personal tasks={tasks} />

@@ -14,13 +14,24 @@ class Edit extends Component {
           {tasks.map((task, index) => {
             if(tasks.length -1 === index){
             return <div key={task.id}>
-          <label htmlFor="taskInput">Enter task</label>
+              <div>
+          <label>{this.props.title}</label>
           <input
             onChange={this.props.handleChange}
             defaultValue={task.text}
             type="text"
-            id="taskInput"
+            id='text'
           ></input>
+          </div>
+          <div>
+          <label>{this.props.num}</label>
+          <input
+            onChange={this.props.handleChange}
+            defaultValue={task.number}
+            type="text"
+            id='number'
+          ></input>
+          </div>
             </div>
             }
           })}
