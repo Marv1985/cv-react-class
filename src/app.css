@@ -1,0 +1,12 @@
+.wrapper{
+    display: flex;
+    justify-content: space-between;
+}
+
+.leftSide{
+    display: flex;
+    min-width: 50%;
+}
+.rightSide{
+    min-width: 50%;
+}
