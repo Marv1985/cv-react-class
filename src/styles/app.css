@@ -1,0 +1,49 @@
+.wrapperOne{
+    display: flex;
+    justify-content: space-between;
+}
+
+.border{
+    display: flex;
+    height: 150px;
+    border-bottom: 1px solid black;
+    flex-direction: column;
+    justify-content: center;
+}
+.border p{
+    margin-top: 0;
+}
+
+.leftSide{
+    display: flex;
+    min-width: 50%;
+    padding-left: 15px;
+}
+.leftSide div{
+    padding-right: 15px;
+}
+.leftSide label{
+    padding-right: 5px;
+}
+
+.rightSide{
+    display: flex;
+    min-width: 50%;
+    height: 150px;
+    border-bottom: 1px solid black;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.buttonsTop{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.buttonsTop button{
+    width: 150px;
+    margin: 10px;
+    margin-top: 0;
+}
+
+

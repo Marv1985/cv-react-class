@@ -1,7 +1,7 @@
 import React, {Component} from "react";
-import Personal from "./Personal";
-import Edit from "./Edit";
-import styles from './app.css';
+import RightEdit from "./components/RightEdit";
+import Edit from "./components/Edit";
+import './styles/app.css';
 
 class App extends Component {
   constructor() {
@@ -13,6 +13,9 @@ class App extends Component {
       email: '',
       id: '',
       tasks: [],
+      editname: [],
+      editnumber: [],
+      editemail: [],
       edit: false,
       name: true,
       results: true,
@@ -26,6 +29,9 @@ class App extends Component {
     this.setState({
       edit: true,
       name: false,
+      text: this.state.editname.pop(),
+      number: this.state.editnumber.pop(),
+      email: this.state.editemail.pop()
     })
   }
 
@@ -33,7 +39,6 @@ class App extends Component {
     this.setState({
       ...this.state,
         [e.target.id]: e.target.value,
-
     });
   };
 
@@ -41,6 +46,9 @@ class App extends Component {
     e.preventDefault();
     this.setState({
       tasks: this.state.tasks.concat(this.state),
+      editname: this.state.editname.concat(this.state.text),
+      editnumber: this.state.editnumber.concat(this.state.number),
+      editemail: this.state.editemail.concat(this.state.email),
       text: '', 
       number: '',
       email: '',
@@ -51,22 +59,24 @@ class App extends Component {
     });
   };
 
+/* render page */
   render() {
     const { tasks } = this.state;
 
     return (
-      <div className="wrapper">
-        <form onSubmit={this.onSubmitTask}>
+      <div>
+      <div className="wrapperOne">
+        <form className="border" onSubmit={this.onSubmitTask}>
 
 {/* edit change */}
         {this.state.edit ? 
-        <Edit tasks={tasks} handleChange={this.handleChange} em='Email' num='Number' title='Name'/>: null}
+        <Edit tasks={tasks} handleChange={this.handleChange} em='Email:' num='Number:' title='Name:'/>: null}
 
 {/* default view change */}
          {this.state.name ?  
          <div className="leftSide">
          <div>
-         <label>Name</label>
+         <label>Name:</label>
           <input
             name='text'
             onChange={this.handleChange}
@@ -76,7 +86,7 @@ class App extends Component {
           />
           </div>
           <div>
-          <label>Number</label>
+          <label>Number:</label>
            <input
              name='number'
              onChange={this.handleChange}
@@ -89,7 +99,7 @@ class App extends Component {
            />
            </div>
            <div>
-          <label>Email</label>
+          <label>Email:</label>
            <input
              name='email'
              onChange={this.handleChange}
@@ -101,18 +111,24 @@ class App extends Component {
            </div>
           : null}
 
+          <div className="buttonsTop">
           <button type="submit">Add</button>
           <button onClick={this.handleEdit}>Edit</button>
+          </div>
         </form>
 
-        {/* edit output */}
+{/* edit output */}
         <div className="rightSide">
         {this.state.results ?
         <div>
-          <p>Name: <br/>Number: <br/>Email: </p>
+          <p>Name: </p>
+          <p>Number: </p>
+          <p>Email: </p>
         </div>: null}
-        <Personal tasks={tasks} />
+        <RightEdit tasks={tasks} />
         </div>
+      </div>
+      <p>jhuh</p>
       </div>
     );
   }
