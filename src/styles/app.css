@@ -1,12 +1,13 @@
 .wrapperOne{
     display: flex;
     justify-content: space-between;
+    min-height: 150px;
 }
 
 .border{
     display: flex;
     height: 150px;
-    border-bottom: 1px solid black;
+    min-width: 50%;
     flex-direction: column;
     justify-content: center;
 }
@@ -16,8 +17,7 @@
 
 .leftSide{
     display: flex;
-    min-width: 50%;
-    padding-left: 15px;
+    padding-left:30px;
 }
 .leftSide div{
     padding-right: 15px;
@@ -29,8 +29,6 @@
 .rightSide{
     display: flex;
     min-width: 50%;
-    height: 150px;
-    border-bottom: 1px solid black;
     flex-direction: column;
     justify-content: center;
 }
@@ -44,6 +42,70 @@
     width: 150px;
     margin: 10px;
     margin-top: 0;
+    margin-right: 100px;
 }
 
+/* school and grades */
+.wrapperTwo{
+    display: flex;
+    min-height: 300px;
+}
 
+.borderLeft{
+    display: flex;
+    min-width: 50%;
+    justify-content: space-between;
+}
+.borderRight{
+    display: flex;
+    height: 150px;
+    min-width: 50%;
+    padding-top: 40px;
+}
+
+.schools{
+    display: flex;
+    flex-direction: column;
+    padding: 40px 0 0 30px;
+}
+.schools div{
+    margin-bottom: 20px;
+}
+.schools input{
+    display: block;
+    width: 250px;
+    margin-top: 5px;
+}
+
+.grades{
+    display: flex;
+    margin-right: 130px;
+    margin-top: 40px;
+}
+.grades p{
+    margin: 0;
+    padding-right: 10px;
+}
+.grades textarea{
+    height: 200px;
+    width: 300px;
+}
+textarea{
+    resize: none;
+}
+
+.gradesEditLeft{
+    min-width: 50%;
+}
+.gradesEditLeft p{
+    margin-top: 0;
+}
+
+.gradesEditRight p{
+    margin-top: 0;
+}
+
+.schools button{
+    width: 80px;
+    margin-right: 20px;
+}
