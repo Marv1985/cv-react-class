@@ -1,111 +1,108 @@
-.wrapperOne{
-    display: flex;
-    justify-content: space-between;
-    min-height: 150px;
+.wrapperOne {
+  display: flex;
+  justify-content: space-between;
+  min-height: 150px;
 }
 
-.border{
-    display: flex;
-    height: 150px;
-    min-width: 50%;
-    flex-direction: column;
-    justify-content: center;
+.border {
+  display: flex;
+  height: 150px;
+  min-width: 50%;
+  flex-direction: column;
+  justify-content: center;
 }
-.border p{
-    margin-top: 0;
-}
-
-.leftSide{
-    display: flex;
-    padding-left:30px;
-}
-.leftSide div{
-    padding-right: 15px;
-}
-.leftSide label{
-    padding-right: 5px;
+.border p {
+  margin-top: 0;
 }
 
-.rightSide{
-    display: flex;
-    min-width: 50%;
-    flex-direction: column;
-    justify-content: center;
+.leftSide {
+  display: flex;
+  padding-left: 30px;
+}
+.leftSide div {
+  padding-right: 15px;
+}
+.leftSide label {
+  padding-right: 5px;
 }
 
-.buttonsTop{
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
+.rightSide {
+  display: flex;
+  min-width: 50%;
+  flex-direction: column;
+  justify-content: center;
 }
-.buttonsTop button{
-    width: 150px;
-    margin: 10px;
-    margin-top: 0;
-    margin-right: 100px;
+
+.buttonsTop {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.buttonsTop button {
+  width: 150px;
+  margin: 10px;
+  margin-top: 0;
+  margin-right: 100px;
 }
 
 /* school and grades */
-.wrapperTwo{
-    display: flex;
-    min-height: 300px;
+.wrapperTwo {
+  display: flex;
+  min-height: 300px;
 }
 
-.borderLeft{
-    display: flex;
-    min-width: 50%;
-    justify-content: space-between;
+.borderLeft {
+  display: flex;
+  min-width: 50%;
+  justify-content: space-between;
 }
-.borderRight{
-    display: flex;
-    height: 150px;
-    min-width: 50%;
-    padding-top: 40px;
-}
-
-.schools{
-    display: flex;
-    flex-direction: column;
-    padding: 40px 0 0 30px;
-}
-.schools div{
-    margin-bottom: 20px;
-}
-.schools input{
-    display: block;
-    width: 250px;
-    margin-top: 5px;
+.borderRight {
+  display: flex;
+  height: 150px;
+  min-width: 50%;
+  padding-top: 40px;
 }
 
-.grades{
-    display: flex;
-    margin-right: 130px;
-    margin-top: 40px;
+.schools {
+  display: flex;
+  flex-direction: column;
+  padding: 40px 0 0 30px;
 }
-.grades p{
-    margin: 0;
-    padding-right: 10px;
+.schools div {
+  margin-bottom: 20px;
 }
-.grades textarea{
-    height: 200px;
-    width: 300px;
-}
-textarea{
-    resize: none;
+.schools input {
+  display: block;
+  width: 250px;
+  margin-top: 5px;
 }
 
-.gradesEditLeft{
-    min-width: 50%;
+.grades {
+  margin-right: 130px;
+  margin-top: 20px;
 }
-.gradesEditLeft p{
-    margin-top: 0;
+.grades textarea {
+  height: 200px;
+  width: 300px;
+}
+textarea {
+  resize: none;
 }
 
-.gradesEditRight p{
-    margin-top: 0;
+.gradesEditLeft {
+  min-width: 50%;
+}
+.gradesEditLeft p {
+  margin-top: 0;
 }
 
-.schools button{
-    width: 80px;
-    margin-right: 20px;
+.gradesEditRight p {
+  margin-top: 0;
 }
+
+.schools button {
+  width: 80px;
+  margin-right: 20px;
+}
+
+/* work section */

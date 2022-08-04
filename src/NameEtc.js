@@ -1,16 +1,16 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import EditName from "./components/EditName";
-import './styles/app.css';
+import "./styles/app.css";
 
 class NameEtc extends Component {
   constructor() {
     super();
 
     this.state = {
-      text: '', 
-      number: '',
-      email: '',
-      id: '',
+      text: "",
+      number: "",
+      email: "",
+      id: "",
       tasks: [],
       editname: [],
       editnumber: [],
@@ -26,14 +26,14 @@ class NameEtc extends Component {
     this.setState({
       text: this.state.editname.pop(),
       number: this.state.editnumber.pop(),
-      email: this.state.editemail.pop()
-    })
-  }
+      email: this.state.editemail.pop(),
+    });
+  };
 
   handleChange = (e) => {
     this.setState({
       ...this.state,
-        [e.target.id]: e.target.value,
+      [e.target.id]: e.target.value,
     });
   };
 
@@ -44,78 +44,78 @@ class NameEtc extends Component {
       editname: this.state.editname.concat(this.state.text),
       editnumber: this.state.editnumber.concat(this.state.number),
       editemail: this.state.editemail.concat(this.state.email),
-      text: '', 
-      number: '',
-      email: '',
-      id: '',
-      name: true,
-      results: false
+      text: "",
+      number: "",
+      email: "",
+      id: "",
+      results: false,
     });
   };
 
-/* render page */
+  /* render page */
   render() {
     const { tasks } = this.state;
 
     return (
       <div>
-      <div className="wrapperOne">
-        <form className="border" onSubmit={this.onSubmitTask}>
+        <div className="wrapperOne">
+          <form className="border" onSubmit={this.onSubmitTask}>
+            <div className="leftSide">
+              <div>
+                <label>Name:</label>
+                <input
+                  name="text"
+                  onChange={this.handleChange}
+                  value={this.state.text}
+                  type="text"
+                  id="text"
+                />
+              </div>
+              <div>
+                <label>Number:</label>
+                <input
+                  name="number"
+                  onChange={this.handleChange}
+                  value={this.state.number}
+                  type="tel"
+                  pattern="[0-9]+"
+                  onInvalid={(e) =>
+                    e.target.setCustomValidity("Enter a valid telphone number")
+                  }
+                  onInput={(e) => e.target.setCustomValidity("")}
+                  id="number"
+                />
+              </div>
+              <div>
+                <label>Email:</label>
+                <input
+                  name="email"
+                  onChange={this.handleChange}
+                  value={this.state.email}
+                  type="email"
+                  id="email"
+                />
+              </div>
+            </div>
+            <div className="buttonsTop">
+              {/* buttons */}
+              <button type="submit">Add</button>
+              <button onClick={this.handleEdit}>Edit</button>
+            </div>
+          </form>
 
-         <div className="leftSide">
-         <div>
-         <label>Name:</label>
-          <input
-            name='text'
-            onChange={this.handleChange}
-            value={this.state.text}
-            type="text"
-            id='text'
-          />
+          {/* edit output */}
+          <div className="rightSide">
+            {this.state.results ? (
+              <div>
+                <p>Name: </p>
+                <p>Number: </p>
+                <p>Email: </p>
+              </div>
+            ) : null}
+            <EditName tasks={tasks} />
           </div>
-          <div>
-          <label>Number:</label>
-           <input
-             name='number'
-             onChange={this.handleChange}
-             value={this.state.number}
-             type="tel"
-             pattern="[0-9]+"
-             onInvalid={e => e.target.setCustomValidity('Enter a valid telphone number')}
-             onInput={e => e.target.setCustomValidity("")}
-             id='number'
-           />
-           </div>
-           <div>
-          <label>Email:</label>
-           <input
-             name='email'
-             onChange={this.handleChange}
-             value={this.state.email}
-             type="email"
-             id='email'
-           />
-           </div>
-           </div>
-          <div className="buttonsTop">
-
-{/* buttons */}
-          <button type="submit">Add</button>
-          <button onClick={this.handleEdit}>Edit</button>
-          </div>
-        </form>
-
-{/* edit output */}
-        <div className="rightSide">
-        {this.state.results ?
-        <div>
-          <p>Name: </p>
-          <p>Number: </p>
-          <p>Email: </p>
-        </div>: null}
-        <EditName tasks={tasks} />
         </div>
-      </div>
       </div>
     );
   }
